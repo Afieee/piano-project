@@ -81,19 +81,24 @@ body {
 /* Positioning the black keys */
 .black-1 { left: calc(1.8rem + 1.8rem / 2); }
 .black-2 { left: calc(4.2rem + 1.8rem / 2); }
+
 .black-4 { left: calc(9.5rem + 1.8rem / 2); }
 .black-5 { left: calc(11.9rem + 1.8rem / 2); }
 .black-6 { left: calc(14.3rem + 1.8rem / 2); }
-.black-8 { left: calc(19.6rem + 1.8rem / 2); }
-.black-9 { left: calc(22.0rem + 1.8rem / 2); }
-.black-11 { left: calc(27.3rem + 1.8rem / 2); }
-.black-12 { left: calc(29.7rem + 1.8rem / 2); }
-.black-13 { left: calc(32.1rem + 1.8rem / 2); }
-.black-15 { left: calc(37.4rem + 1.8rem / 2); }
-.black-16 { left: calc(39.8rem + 1.8rem / 2); }
-.black-18 { left: calc(45.1rem + 1.8rem / 2); }
-.black-19 { left: calc(47.5rem + 1.8rem / 2); }
-.black-20 { left: calc(49.9rem + 1.8rem / 2); }
+
+.black-8 { left: calc(19.4rem + 1.8rem / 2); }
+.black-9 { left: calc(21.9rem + 1.8rem / 2); }
+
+.black-11 { left: calc(27.0rem + 1.8rem / 2); }
+.black-12 { left: calc(29.4rem + 1.8rem / 2); }
+.black-13 { left: calc(31.9rem + 1.8rem / 2); }
+
+.black-15 { left: calc(36.9rem + 1.8rem / 2); }
+.black-16 { left: calc(39.4rem + 1.8rem / 2); }
+
+.black-18 { left: calc(44.4rem + 1.8rem / 2); }
+.black-19 { left: calc(47.0rem + 1.8rem / 2); }
+.black-20 { left: calc(49.4rem + 1.8rem / 2); }
 
 /* Existing styles... */
 
@@ -108,7 +113,7 @@ body {
   transform: translate(-50%, -50%);
   opacity: 0;
   animation: fade-in 0.3s forwards;
-  font-size: 1.25rem; /* Increased text size */
+  font-size: 2.25rem; /* Increased text size */
   font-weight: bold; /* Made text bold */
   z-index: 1000; /* Ensure it is above all other elements */
 }
