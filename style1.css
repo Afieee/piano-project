@@ -1,0 +1,198 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background: #fefeff;
+  height: 100vh;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    background: linear-gradient(135deg, #444, #111); /* Gradient background */
+    color: white;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+    justify-content: flex-start; /* Start aligning items from the top */
+    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+  }
+  
+  .sidebar li {
+    margin-bottom: 1.5rem; /* Increase space between items */
+  }
+  
+  .sidebar a {
+    color: #ffeb3b; /* Bright yellow, matching popup */
+    text-decoration: none;
+    font-size: 1.3rem; /* Slightly larger font */
+    font-weight: bold; /* Bold text */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  }
+  
+  .sidebar a:hover {
+    color: #fff; /* White on hover */
+    transform: scale(1.1); /* Slight zoom effect */
+    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.6); /* Glow effect */
+  }
+  
+  .sidebar a:active {
+    transform: scale(1.05); /* Slight reduction on click */
+    text-shadow: none;
+  }
+  
+  /* Add a Piano Icon at the Top */
+  .sidebar::before {
+    display: block;
+    margin: 0 auto 1rem auto;
+    width: 10px;
+    height: 10px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4)); /* Shadow for icon */
+  }
+  
+  .sidebar a::before {
+    content: '♫'; /* Music note before each link */
+    margin-right: 0.5rem;
+    font-size: 1.5rem;
+    color: #ffeb3b; /* Matching color */
+  }
+
+.piano-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 1.4rem;
+  background: rgb(105, 10, 10);
+  box-shadow: 0 4px 8px rgba(84, 38, 38, 0.1);
+  overflow: hidden; /* Ensures no overflow */
+  border-radius: 1rem;
+  margin-left: 220px; /* Added margin to make room for the sidebar */
+}
+
+.key {
+  width: 2.5rem;
+  height: 12rem;
+  border-radius: 0 0 6px 6px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  position: relative; /* For stacking context */
+}
+
+.white-key {
+  background-color: #ffffff;
+  border: 2px solid #161515;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.white-key:hover,
+.white-active {
+  background-color: #d0f0f0;
+  border-color: #b0d0d0;
+  transform: rotateX(5deg);
+}
+
+.black-key {
+  background: linear-gradient(180deg, #333 30%, #666 90%);
+  font-size: 12px;
+  color: white;
+  height: 7rem;
+  width: 1.7rem;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.black-key.pressed {
+  transform: translateY(10px);
+}
+
+.black-key:hover {
+  background: linear-gradient(180deg, #444 30%, #777 90%);
+}
+
+.black-key:active {
+  background: linear-gradient(180deg, #222 30%, #555 90%);
+}
+
+/* Positioning the black keys */
+.black-1 { left: calc(1.8rem + 1.8rem / 2); }
+.black-2 { left: calc(4.2rem + 1.8rem / 2); }
+.black-4 { left: calc(9.5rem + 1.8rem / 2); }
+.black-5 { left: calc(11.9rem + 1.8rem / 2); }
+.black-6 { left: calc(14.3rem + 1.8rem / 2); }
+.black-8 { left: calc(19.6rem + 1.8rem / 2); }
+.black-9 { left: calc(22.0rem + 1.8rem / 2); }
+.black-11 { left: calc(27.3rem + 1.8rem / 2); }
+.black-12 { left: calc(29.7rem + 1.8rem / 2); }
+.black-13 { left: calc(32.1rem + 1.8rem / 2); }
+.black-15 { left: calc(37.4rem + 1.8rem / 2); }
+.black-16 { left: calc(39.8rem + 1.8rem / 2); }
+.black-18 { left: calc(45.1rem + 1.8rem / 2); }
+.black-19 { left: calc(47.5rem + 1.8rem / 2); }
+.black-20 { left: calc(49.9rem + 1.8rem / 2); }
+
+.piano-container div:first-child {
+  margin-left: 0;
+}
+
+/* Popup Styles */
+.popup {
+  position: absolute;
+  background-color: #ffeb3b;
+  color: #333;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  animation: fade-in 0.3s forwards;
+  font-size: 1.25rem; /* Increased text size */
+  font-weight: bold; /* Made text bold */
+  z-index: 2000; /* Ensure it is above all other elements, including sidebar */
+  left: 50%; /* Center horizontally */
+  top: 50%; /* Center vertically */
+  pointer-events: none; /* Ensures the popup doesn't block interactions with the piano */
+}
+
+.popup.fade-out {
+  animation: fade-out 0.5s forwards;
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
