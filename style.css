@@ -5,12 +5,12 @@
 }
 
 html {
-  background: #e0e0e0; /* Soft, neutral background */
+  background: #fefeff;
   height: 100vh;
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,48 +23,47 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 2rem;
-  background: #a93203; /* Darker background for the piano */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  padding: 1rem;
+  background: rgb(105, 10, 10);
+  box-shadow: 0 4px 8px rgba(84, 38, 38, 0.1);
   overflow: hidden; /* Ensures no overflow */
-  border-radius: 2rem;
+  border-radius: 1rem;
 }
 
 .key {
-  width: 3rem; /* Slightly wider keys */
-  height: 14rem; /* Slightly taller keys */
-  border-radius: 0 0 8px 8px; /* Softer border radius */
+  width: 2.5rem;
+  height: 12rem;
+  border-radius: 0 0 6px 6px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
   cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.2s ease;
   position: relative; /* For stacking context */
 }
 
 .white-key {
-  background-color: #f5f5f5; /* Softer white color */
-  border: 2px solid #b0b0b0;
+  background-color: #ffffff;
+  border: 2px solid #161515;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .white-key:hover,
 .white-active {
-  background-color: #ececec;
-  border-color: #999;
-  transform: translateY(-2px); /* Subtle elevation */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Increased shadow */
+  background-color: #d0f0f0;
+  border-color: #b0d0d0;
+  transform: rotateX(5deg);
 }
 
 .black-key {
-  background: linear-gradient(180deg, #111 20%, #444 90%); /* Darker gradient for black keys */
+  background: linear-gradient(180deg, #333 30%, #666 90%);
   color: white;
-  height: 9rem;
-  width: 2rem;
+  height: 7rem;
+  width: 1.5rem;
   position: absolute;
   top: 0;
   z-index: 2;
-  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .black-key.pressed {
@@ -72,47 +71,53 @@ body {
 }
 
 .black-key:hover {
-  background: linear-gradient(180deg, #222 20%, #555 90%);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added shadow on hover */
+  background: linear-gradient(180deg, #444 30%, #777 90%);
 }
 
 .black-key:active {
-  background: linear-gradient(180deg, #000 20%, #333 90%);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Reduced shadow on press */
+  background: linear-gradient(180deg, #222 30%, #555 90%);
 }
 
 /* Positioning the black keys */
-.black-1 { left: calc(2.1rem + 2.1rem / 2); }
-.black-2 { left: calc(5.1rem + 2.1rem / 2); }
-.black-4 { left: calc(11.5rem + 2.1rem / 2); }
-.black-5 { left: calc(14.3rem + 2.1rem / 2); }
-.black-6 { left: calc(17.1rem + 2.1rem / 2); }
-.black-8 { left: calc(23.5rem + 2.1rem / 2); }
-.black-9 { left: calc(26.3rem + 2.1rem / 2); }
-.black-11 { left: calc(32.7rem + 2.1rem / 2); }
-.black-12 { left: calc(35.5rem + 2.1rem / 2); }
-.black-13 { left: calc(38.3rem + 2.1rem / 2); }
-.black-15 { left: calc(44.7rem + 2.1rem / 2); }
-.black-16 { left: calc(47.5rem + 2.1rem / 2); }
-.black-18 { left: calc(53.9rem + 2.1rem / 2); }
-.black-19 { left: calc(56.7rem + 2.1rem / 2); }
-.black-20 { left: calc(59.5rem + 2.1rem / 2); }
+.black-1 { left: calc(1.8rem + 1.8rem / 2); }
+.black-2 { left: calc(4.2rem + 1.8rem / 2); }
+.black-4 { left: calc(9.5rem + 1.8rem / 2); }
+.black-5 { left: calc(11.9rem + 1.8rem / 2); }
+.black-6 { left: calc(14.3rem + 1.8rem / 2); }
+.black-8 { left: calc(19.6rem + 1.8rem / 2); }
+.black-9 { left: calc(22.0rem + 1.8rem / 2); }
+.black-11 { left: calc(27.3rem + 1.8rem / 2); }
+.black-12 { left: calc(29.7rem + 1.8rem / 2); }
+.black-13 { left: calc(32.1rem + 1.8rem / 2); }
+.black-15 { left: calc(37.4rem + 1.8rem / 2); }
+.black-16 { left: calc(39.8rem + 1.8rem / 2); }
+.black-18 { left: calc(45.1rem + 1.8rem / 2); }
+.black-19 { left: calc(47.5rem + 1.8rem / 2); }
+.black-20 { left: calc(49.9rem + 1.8rem / 2); }
+
+/* Existing styles... */
 
 /* Popup Styles */
 .popup {
   position: absolute;
   background-color: #ffeb3b;
   color: #333;
-  padding: 0.75rem 1.5rem;
-  border-radius: 1rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transform: translate(-50%, -50%);
   opacity: 0;
   animation: fade-in 0.3s forwards;
-  font-size: 1.5rem; /* Larger text size */
-  font-weight: bold; /* Bold text */
-  z-index: 1000;
+  font-size: 1.25rem; /* Increased text size */
+  font-weight: bold; /* Made text bold */
+  z-index: 1000; /* Ensure it is above all other elements */
 }
+
+
+
+
+
+
 
 .popup.fade-out {
   animation: fade-out 0.5s forwards;
